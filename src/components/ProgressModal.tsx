@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { X, Send, Sparkles, Clock, CheckCircle, Brain } from "lucide-react";
-import { progressAPI } from "@/lib/api";
+// import { progressAPI } from "@/lib/api";
 
 interface ProgressModalProps {
   isOpen: boolean;
@@ -36,30 +36,30 @@ export function ProgressModal({
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      await progressAPI.create({
-        goalId,
-        day,
-        completed,
-        comment: comment || undefined,
-        hoursSpent: hoursSpent ? parseFloat(hoursSpent) : undefined,
-      });
+    // try {
+    //   await progressAPI.create({
+    //     goalId,
+    //     day,
+    //     completed,
+    //     comment: comment || undefined,
+    //     hoursSpent: hoursSpent ? parseFloat(hoursSpent) : undefined,
+    //   });
 
-      // Show success animation
-      setShowSuccess(true);
+    //   // Show success animation
+    //   setShowSuccess(true);
       
-      setTimeout(() => {
-        setCompleted(true);
-        setHoursSpent("");
-        setComment("");
-        setShowSuccess(false);
-        onClose();
-        onSuccess?.();
-      }, 2000);
-    } catch (error) {
-      console.error("Failed to add progress:", error);
-      setIsSubmitting(false);
-    }
+    //   setTimeout(() => {
+    //     setCompleted(true);
+    //     setHoursSpent("");
+    //     setComment("");
+    //     setShowSuccess(false);
+    //     onClose();
+    //     onSuccess?.();
+    //   }, 2000);
+    // } catch (error) {
+    //   console.error("Failed to add progress:", error);
+    //   setIsSubmitting(false);
+    // }
   };
 
   const handleClose = () => {
